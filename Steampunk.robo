@@ -1,0 +1,274 @@
+<head><version>2.83.2</version></head>
+<zoom>10</zoom>
+<Camera_Properties>
+  <brightness_value>25</brightness_value>
+  <camera>Logitech HD Webcam C615</camera>
+  <contrast_value>255</contrast_value>
+  <enable_trigger>FALSE</enable_trigger>
+  <exposure_value>-2</exposure_value>
+  <focus_value>68</focus_value>
+  <force_settings>FALSE</force_settings>
+  <gain_value>18</gain_value>
+  <horizontal_flip>FALSE</horizontal_flip>
+  <saturation_value>224</saturation_value>
+  <sharp_value>22</sharp_value>
+  <software_auto_exposure>FALSE</software_auto_exposure>
+  <tab_selected>1</tab_selected>
+  <timeout>5000</timeout>
+  <vertical_flip>FALSE</vertical_flip>
+  <video_bitcount>24</video_bitcount>
+  <video_size>320 x 240</video_size>
+  <wait_for_image>TRUE</wait_for_image>
+  <whitebalance_value>4785</whitebalance_value>
+  <zoom_value>1</zoom_value>
+</Camera_Properties>
+<Cylindrical_Unwarp>
+  <crop_border>FALSE</crop_border>
+  <curvature>1.21</curvature>
+  <x_center>0</x_center>
+  <z_rotation>0</z_rotation>
+</Cylindrical_Unwarp>
+<Normalize disabled>
+  <channel>1</channel>
+  <ignore_below>5%</ignore_below>
+  <max_limit>255</max_limit>
+  <min_limit>0</min_limit>
+  <weight_index>19</weight_index>
+  <x_consider>320</x_consider>
+  <x_modify>320</x_modify>
+  <y_consider>240</y_consider>
+  <y_modify>240</y_modify>
+</Normalize>
+<Marker>
+  <include_graphics>0</include_graphics>
+  <name>mark0</name>
+  <revert_to>Current</revert_to>
+</Marker>
+<Equalize disabled>
+  <channel>1</channel>
+  <x_consider>0</x_consider>
+  <x_modify>0</x_modify>
+  <y_consider>0</y_consider>
+  <y_modify>0</y_modify>
+</Equalize>
+<RGB_Math disabled>
+  <bias>0</bias>
+  <channel_1>1</channel_1>
+  <channel_2>1</channel_2>
+  <divisor>1</divisor>
+  <function>1</function>
+</RGB_Math>
+<RGB_Channel>
+  <channel>1</channel>
+  <convert_to_grayscale>FALSE</convert_to_grayscale>
+</RGB_Channel>
+<Adaptive_Threshold>
+  <channel_type>2</channel_type>
+  <filter_size>8</filter_size>
+  <max_threshold>255</max_threshold>
+  <mean_offset>16</mean_offset>
+  <min_threshold>246</min_threshold>
+</Adaptive_Threshold>
+<Dilate>
+  <avoid_connection>FALSE</avoid_connection>
+  <count>7</count>
+  <dilate_borders>FALSE</dilate_borders>
+  <direction>2</direction>
+  <kernal_shape>4</kernal_shape>
+</Dilate>
+<Blob_Filter>
+  <create_blob_array_variable>TRUE</create_blob_array_variable>
+  <filters>
+    <tab>
+      <filter>
+        <count_threshold>2</count_threshold>
+        <create_array>0</create_array>
+        <filter_id>21</filter_id>
+        <invert_count>0</invert_count>
+        <invert_threshold>0</invert_threshold>
+        <weight_threshold>0</weight_threshold>
+      </filter>
+    </tab>
+    <tab:2/>
+    <tab:3/>
+    <tab:4/>
+    <tab:5/>
+    <tab:6/>
+  </filters>
+  <font_size>Normal (10pt)</font_size>
+  <largest_is_background>FALSE</largest_is_background>
+  <show_mode>2</show_mode>
+  <show_weights>FALSE</show_weights>
+  <sort_array_on_x>TRUE</sort_array_on_x>
+  <sort_array_on_y>FALSE</sort_array_on_y>
+</Blob_Filter>
+<Marker>
+  <include_graphics>0</include_graphics>
+  <name>mark1</name>
+  <revert_to>Current</revert_to>
+</Marker>
+<Geometric_Statistics>
+  <basic_statistics>TRUE</basic_statistics>
+  <scope>1</scope>
+</Geometric_Statistics>
+<Watch_Variables>
+  <on_top>FALSE</on_top>
+</Watch_Variables>
+<Line_Pattern>
+  <angle_increment>0.0</angle_increment>
+  <bottom_padding>1</bottom_padding>
+  <color>green</color>
+  <confidence>75</confidence>
+  <display_as_annotation>1</display_as_annotation>
+  <has_border>1</has_border>
+  <left_padding>1</left_padding>
+  <line_color/>
+  <max_angle>0.725229</max_angle>
+  <max_length/>
+  <merge_count>5</merge_count>
+  <merge_overlap>20</merge_overlap>
+  <min_angle>0.725229</min_angle>
+  <min_length/>
+  <overlay_image>mark0</overlay_image>
+  <pattern>5 200 625 200 5</pattern>
+  <remove_background>0</remove_background>
+  <riht_padding>1</riht_padding>
+  <text_size>Normal (10pt)</text_size>
+  <thickness>1</thickness>
+  <top_padding>1</top_padding>
+</Line_Pattern>
+<Display_Arrow disabled>
+  <clear_image>0</clear_image>
+  <color>green</color>
+  <display_as_annotation>1</display_as_annotation>
+  <display_mode_index>0</display_mode_index>
+  <head_thickness>7</head_thickness>
+  <line_thickness>3</line_thickness>
+  <xy_list/>
+  <x_end>[LINE_PATTERN:1]</x_end>
+  <x_end_map/>
+  <x_start>[image_width/2]</x_start>
+  <x_start_map/>
+  <y_end>[LINE_PATTERN:2]</y_end>
+  <y_end_map/>
+  <y_start>[image_height/2]</y_start>
+  <y_start_map/>
+</Display_Arrow>
+<VBScript_Program>
+  <auto_reload>TRUE</auto_reload>
+  <continue_on_errors>TRUE</continue_on_errors>
+  <script>list = GetArrayVariable("LINE_PATTERN")
+if isArray(list) then
+  if ubound(list) &gt; 0 then
+
+		' based on a line pattern in 8 x inches 
+		' of 10 17 31 32 10 = 100
+	
+    targetPixelHeight = (list(3)/10)
+    targetSamples = 0
+
+    ' calibrated for an Axis camera
+    imageHeight = GetVariable("IMAGE_HEIGHT")
+    cameraFieldOfView = 47.5
+    targetHeight =9.3
+
+		' determine distance in 8 x inches
+    totalDistance = (((targetHeight*imageHeight)/targetPixelHeight)/2)/_
+      tan(((cameraFieldOfView*3.14159)/180.0)/2.0)
+
+		' convert to ft (12 inch per ft * 8 inch multiplier) = 96
+		totalDistance = CInt((totalDistance*100)/96)/100
+
+		' save it for use in other modules
+    SetVariable "Distance", totalDistance
+
+  end if
+end if		
+    imagewidth = GetVariable("IMAGE_WIDTH")
+    xcenter = imageWidth/2
+
+    SetVariable "xcenter" , xcenter 
+	  targetx=GetVariable("LINE_PATTERN:1")
+	
+	  xoffset=targetx-xcenter
+		' SetVariable "xoffset", xoffset
+	  xRotationAngle=formatnumber((cameraFieldOfView * xoffset) / imageWidth,2)
+		SetVariable "xRotationAngle", xRotationAngle
+
+    
+		boxAspectRatio = GetArrayVariable("BOX_ASPECT_RATIO")
+    cogX = GetArrayVariable("COG_X")
+    minY = GetArrayVariable("MIN_Y")
+    maxY = GetArrayVariable("MAX_Y")
+    minX = GetArrayVariable("MIN_X")
+		maxX = GetArrayVariable("MAX_X")
+
+
+
+if cogX(0)&lt;cogX(1) then
+	leftBoxAspect=boxAspectRatio(0)
+	rightBoxAspect=boxAspectRatio(1)
+	leftBoxHeight=maxY(0)-minY(0)
+	rightBoxHeight=maxY(1)-minY(1)
+	leftBoxWidth=maxX(0)-minX(0)
+	rightBoxWidth=maxX(1)-minX(1)
+
+else	
+	leftBoxAspect=boxAspectRatio(1)
+	rightBoxAspect=boxAspectRatio(0)
+	leftBoxHeight=maxY(1)-minY(1)
+	rightBoxHeight=maxY(0)-minY(0)
+	leftBoxWidth=maxX(1)-minX(1)
+	rightBoxWidth=maxX(0)-minX(0)
+
+end if
+	
+		SetVariable "leftBoxHeight",leftBoxHeight
+		SetVariable "rightBoxHeight",rightBoxHeight
+		
+		SetVariable "leftBoxWidth",leftBoxWidth
+		SetVariable "rightBoxWidth",rightBoxWidth
+		
+		  	BoxAspectRatio = formatnumber(1-(leftBoxAspect/rightBoxAspect),2)
+		BoxHeightRatio = formatnumber(1-(leftBoxHeight/rightBoxHeight),2)
+		BoxWidthRatio = formatnumber(1-(leftBoxWidth/rightBoxWidth),2)
+
+		SetVariable "leftBoxAspect",leftBoxAspect
+		SetVariable "rightBoxAspect",rightBoxAspect
+		
+		SetVariable "BoxHeightRatio", BoxHeightRatio
+		SetVariable "BoxWidthRatio", BoxWidthRatio
+		SetVariable "BoxAspectRatio", BoxAspectRatio		
+		</script>
+  <source_mode>gui</source_mode>
+  <tab_size_index>3</tab_size_index>
+</VBScript_Program>
+<Watch_Variables>
+  <on_top>TRUE</on_top>
+</Watch_Variables>
+<Display_Variables>
+  <border_color>red</border_color>
+  <dim_background>TRUE</dim_background>
+  <display_as_annotation>FALSE</display_as_annotation>
+  <display_value_only>FALSE</display_value_only>
+  <font_color>white</font_color>
+  <font_size>Normal (10pt)</font_size>
+  <northwest>LINE_PATTERN_COUNT
+BoxWidthRatio
+</northwest>
+  <southeast>xRotationAngle
+</southeast>
+  <southwest>Distance
+</southwest>
+</Display_Variables>
+<NetworkTables disabled>
+  <delay>100</delay>
+  <filter_type_index>0</filter_type_index>
+  <hostname>10.26.19.2</hostname>
+  <port>1735</port>
+  <prefix>/SmartDashboard/</prefix>
+  <variables_to_send>Distance
+LINE_PATTERN_COUNT
+xRotationAngle</variables_to_send>
+  <variable_type_index>0</variable_type_index>
+</NetworkTables>
