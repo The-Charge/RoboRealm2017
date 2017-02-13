@@ -1,13 +1,13 @@
 <head><version>2.83.7</version></head>
 <zoom>12</zoom>
 <Camera_Properties>
-  <brightness_value>164</brightness_value>
+  <brightness_value>172</brightness_value>
   <camera>Logitech HD Pro Webcam C920</camera>
   <contrast_value>255</contrast_value>
   <enable_trigger>FALSE</enable_trigger>
-  <exposure_value>-3</exposure_value>
-  <force_settings>FALSE</force_settings>
-  <gain_value>77</gain_value>
+  <exposure_value>-2</exposure_value>
+  <force_settings>TRUE</force_settings>
+  <gain_value>56</gain_value>
   <horizontal_flip>FALSE</horizontal_flip>
   <saturation_value>253</saturation_value>
   <sharp_value>128</sharp_value>
@@ -28,36 +28,11 @@
   <x_center>0</x_center>
   <z_rotation>0</z_rotation>
 </Cylindrical_Unwarp>
-<Normalize disabled>
-  <channel>1</channel>
-  <ignore_below>25%</ignore_below>
-  <max_limit>255</max_limit>
-  <min_limit>0</min_limit>
-  <weight_index>19</weight_index>
-  <x_consider>320</x_consider>
-  <x_modify>320</x_modify>
-  <y_consider>240</y_consider>
-  <y_modify>240</y_modify>
-</Normalize>
 <Marker>
   <include_graphics>0</include_graphics>
   <name>mark0</name>
   <revert_to>Current</revert_to>
 </Marker>
-<Equalize disabled>
-  <channel>1</channel>
-  <x_consider>0</x_consider>
-  <x_modify>0</x_modify>
-  <y_consider>0</y_consider>
-  <y_modify>0</y_modify>
-</Equalize>
-<RGB_Math disabled>
-  <bias>0</bias>
-  <channel_1>1</channel_1>
-  <channel_2>1</channel_2>
-  <divisor>1</divisor>
-  <function>3</function>
-</RGB_Math>
 <RGB_Channel>
   <channel>1</channel>
   <convert_to_grayscale>FALSE</convert_to_grayscale>
@@ -67,7 +42,7 @@
   <filter_size>8</filter_size>
   <max_threshold>255</max_threshold>
   <mean_offset>16</mean_offset>
-  <min_threshold>244</min_threshold>
+  <min_threshold>250</min_threshold>
 </Adaptive_Threshold>
 <Dilate>
   <avoid_connection>FALSE</avoid_connection>
@@ -111,10 +86,7 @@
   <basic_statistics>TRUE</basic_statistics>
   <scope>1</scope>
 </Geometric_Statistics>
-<Watch_Variables disabled>
-  <on_top>FALSE</on_top>
-</Watch_Variables>
-<Line_Pattern disabled>
+<Line_Pattern>
   <angle_increment>0.0</angle_increment>
   <bottom_padding>1</bottom_padding>
   <color>green</color>
@@ -137,23 +109,6 @@
   <thickness>3</thickness>
   <top_padding>1</top_padding>
 </Line_Pattern>
-<Display_Arrow disabled>
-  <clear_image>0</clear_image>
-  <color>green</color>
-  <display_as_annotation>1</display_as_annotation>
-  <display_mode_index>0</display_mode_index>
-  <head_thickness>7</head_thickness>
-  <line_thickness>3</line_thickness>
-  <xy_list/>
-  <x_end>[LINE_PATTERN:1]</x_end>
-  <x_end_map/>
-  <x_start>[image_width/2]</x_start>
-  <x_start_map/>
-  <y_end>[LINE_PATTERN:2]</y_end>
-  <y_end_map/>
-  <y_start>[image_height/2]</y_start>
-  <y_start_map/>
-</Display_Arrow>
 <VBScript_Program>
   <auto_reload>TRUE</auto_reload>
   <continue_on_errors>TRUE</continue_on_errors>
@@ -180,7 +135,7 @@ if isArray(list) then
 		totalDistance = CInt((totalDistance*100)/96)/100
 
 		' save it for use in other modules
-    SetVariable "Distance", totalDistance
+    SetVariable "distance", totalDistance
 
   end if
 end if		
@@ -192,9 +147,11 @@ end if
 	
 	  xoffset=targetx-xcenter
 		' SetVariable "xoffset", xoffset
-	  xRotationAngle=formatnumber((cameraFieldOfView * xoffset) / imageWidth,2)
-		SetVariable "xRotationAngle", xRotationAngle
+	  xAngle=formatnumber((cameraFieldOfView * xoffset) / imageWidth,2)
+		SetVariable "xAngle", xAngle
 
+		tgtCount = GetVariable("LINE_PATTERN_COUNT")
+		SetVariable "tgtCount", tgtCount
     
 		boxAspectRatio = GetArrayVariable("BOX_ASPECT_RATIO")
     cogX = GetArrayVariable("COG_X")
@@ -204,48 +161,10 @@ end if
 		maxX = GetArrayVariable("MAX_X")
 
 
-
-if cogX(0)&lt;cogX(1) then
-	leftBoxAspect=boxAspectRatio(0)
-	rightBoxAspect=boxAspectRatio(1)
-	leftBoxHeight=maxY(0)-minY(0)
-	rightBoxHeight=maxY(1)-minY(1)
-	leftBoxWidth=maxX(0)-minX(0)
-	rightBoxWidth=maxX(1)-minX(1)
-
-else	
-	leftBoxAspect=boxAspectRatio(1)
-	rightBoxAspect=boxAspectRatio(0)
-	leftBoxHeight=maxY(1)-minY(1)
-	rightBoxHeight=maxY(0)-minY(0)
-	leftBoxWidth=maxX(1)-minX(1)
-	rightBoxWidth=maxX(0)-minX(0)
-
-end if
-	
-		SetVariable "leftBoxHeight",leftBoxHeight
-		SetVariable "rightBoxHeight",rightBoxHeight
-		
-		SetVariable "leftBoxWidth",leftBoxWidth
-		SetVariable "rightBoxWidth",rightBoxWidth
-		
-		  	BoxAspectRatio = formatnumber(1-(leftBoxAspect/rightBoxAspect),2)
-		BoxHeightRatio = formatnumber(1-(leftBoxHeight/rightBoxHeight),2)
-		BoxWidthRatio = formatnumber(1-(leftBoxWidth/rightBoxWidth),2)
-
-		SetVariable "leftBoxAspect",leftBoxAspect
-		SetVariable "rightBoxAspect",rightBoxAspect
-		
-		SetVariable "BoxHeightRatio", BoxHeightRatio
-		SetVariable "BoxWidthRatio", BoxWidthRatio
-		SetVariable "BoxAspectRatio", BoxAspectRatio		
 		</script>
   <source_mode>gui</source_mode>
   <tab_size_index>3</tab_size_index>
 </VBScript_Program>
-<Watch_Variables disabled>
-  <on_top>TRUE</on_top>
-</Watch_Variables>
 <Display_Variables>
   <border_color>red</border_color>
   <dim_background>TRUE</dim_background>
@@ -253,22 +172,21 @@ end if
   <display_value_only>FALSE</display_value_only>
   <font_color>white</font_color>
   <font_size>Normal (10pt)</font_size>
-  <northwest>LINE_PATTERN_COUNT
-BoxWidthRatio
+  <northwest>tgtCount
 </northwest>
-  <southeast>xRotationAngle
+  <southeast>xAngle
 </southeast>
-  <southwest>Distance
+  <southwest>distance
 </southwest>
 </Display_Variables>
-<NetworkTables disabled>
-  <delay>100</delay>
+<NetworkTables>
+  <delay>10</delay>
   <filter_type_index>0</filter_type_index>
   <hostname>10.26.19.2</hostname>
   <port>1735</port>
   <prefix>/SmartDashboard/Vision/</prefix>
-  <variables_to_send>Distance
-LINE_PATTERN_COUNT
-xRotationAngle</variables_to_send>
+  <variables_to_send>distance
+tgtCount
+xAngle</variables_to_send>
   <variable_type_index>0</variable_type_index>
 </NetworkTables>
