@@ -1,26 +1,26 @@
-<head><version>2.83.2</version></head>
-<zoom>10</zoom>
+<head><version>2.83.7</version></head>
+<zoom>12</zoom>
 <Camera_Properties>
-  <brightness_value>25</brightness_value>
-  <camera>Logitech HD Webcam C615</camera>
+  <brightness_value>164</brightness_value>
+  <camera>Logitech HD Pro Webcam C920</camera>
   <contrast_value>255</contrast_value>
   <enable_trigger>FALSE</enable_trigger>
-  <exposure_value>-2</exposure_value>
-  <focus_value>68</focus_value>
+  <exposure_value>-3</exposure_value>
   <force_settings>FALSE</force_settings>
-  <gain_value>18</gain_value>
+  <gain_value>77</gain_value>
   <horizontal_flip>FALSE</horizontal_flip>
-  <saturation_value>224</saturation_value>
-  <sharp_value>22</sharp_value>
+  <saturation_value>253</saturation_value>
+  <sharp_value>128</sharp_value>
   <software_auto_exposure>FALSE</software_auto_exposure>
   <tab_selected>1</tab_selected>
   <timeout>5000</timeout>
   <vertical_flip>FALSE</vertical_flip>
   <video_bitcount>24</video_bitcount>
+  <video_rate>30</video_rate>
   <video_size>320 x 240</video_size>
   <wait_for_image>TRUE</wait_for_image>
-  <whitebalance_value>4785</whitebalance_value>
-  <zoom_value>1</zoom_value>
+  <whitebalance_value>6500</whitebalance_value>
+  <zoom_value>100</zoom_value>
 </Camera_Properties>
 <Cylindrical_Unwarp>
   <crop_border>FALSE</crop_border>
@@ -30,7 +30,7 @@
 </Cylindrical_Unwarp>
 <Normalize disabled>
   <channel>1</channel>
-  <ignore_below>5%</ignore_below>
+  <ignore_below>25%</ignore_below>
   <max_limit>255</max_limit>
   <min_limit>0</min_limit>
   <weight_index>19</weight_index>
@@ -56,7 +56,7 @@
   <channel_1>1</channel_1>
   <channel_2>1</channel_2>
   <divisor>1</divisor>
-  <function>1</function>
+  <function>3</function>
 </RGB_Math>
 <RGB_Channel>
   <channel>1</channel>
@@ -67,7 +67,7 @@
   <filter_size>8</filter_size>
   <max_threshold>255</max_threshold>
   <mean_offset>16</mean_offset>
-  <min_threshold>246</min_threshold>
+  <min_threshold>244</min_threshold>
 </Adaptive_Threshold>
 <Dilate>
   <avoid_connection>FALSE</avoid_connection>
@@ -81,7 +81,7 @@
   <filters>
     <tab>
       <filter>
-        <count_threshold>2</count_threshold>
+        <count_threshold>3</count_threshold>
         <create_array>0</create_array>
         <filter_id>21</filter_id>
         <invert_count>0</invert_count>
@@ -111,10 +111,10 @@
   <basic_statistics>TRUE</basic_statistics>
   <scope>1</scope>
 </Geometric_Statistics>
-<Watch_Variables>
+<Watch_Variables disabled>
   <on_top>FALSE</on_top>
 </Watch_Variables>
-<Line_Pattern>
+<Line_Pattern disabled>
   <angle_increment>0.0</angle_increment>
   <bottom_padding>1</bottom_padding>
   <color>green</color>
@@ -123,18 +123,18 @@
   <has_border>1</has_border>
   <left_padding>1</left_padding>
   <line_color/>
-  <max_angle>0.725229</max_angle>
+  <max_angle>0</max_angle>
   <max_length/>
   <merge_count>5</merge_count>
   <merge_overlap>20</merge_overlap>
-  <min_angle>0.725229</min_angle>
+  <min_angle>0</min_angle>
   <min_length/>
   <overlay_image>mark0</overlay_image>
   <pattern>5 200 625 200 5</pattern>
   <remove_background>0</remove_background>
   <riht_padding>1</riht_padding>
   <text_size>Normal (10pt)</text_size>
-  <thickness>1</thickness>
+  <thickness>3</thickness>
   <top_padding>1</top_padding>
 </Line_Pattern>
 <Display_Arrow disabled>
@@ -243,7 +243,7 @@ end if
   <source_mode>gui</source_mode>
   <tab_size_index>3</tab_size_index>
 </VBScript_Program>
-<Watch_Variables>
+<Watch_Variables disabled>
   <on_top>TRUE</on_top>
 </Watch_Variables>
 <Display_Variables>
@@ -266,7 +266,7 @@ BoxWidthRatio
   <filter_type_index>0</filter_type_index>
   <hostname>10.26.19.2</hostname>
   <port>1735</port>
-  <prefix>/SmartDashboard/</prefix>
+  <prefix>/SmartDashboard/Vision/</prefix>
   <variables_to_send>Distance
 LINE_PATTERN_COUNT
 xRotationAngle</variables_to_send>
